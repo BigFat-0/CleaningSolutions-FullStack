@@ -370,25 +370,29 @@ input, select, textarea {
 .modal {
     display: none; 
     position: fixed; 
-    z-index: 2000; 
+    z-index: 1000; /* Adjusted from 2000 */
     left: 0; 
     top: 0; 
     width: 100%; 
     height: 100%; 
     background-color: rgba(0,0,0,0.5); 
-    overflow: auto; /* Enable scroll if modal is tall */
-    justify-content: center; 
-    align-items: center;
+    overflow: auto; /* Enable scroll for modal backdrop if needed */
+    /* Removed justify-content and align-items as content is centered via transform */
 }
 
 .modal-content {
     background-color: #fff; 
-    padding: var(--spacing-lg); 
+    padding: 20px; /* Adjusted padding to ensure consistent breathing room */
     border-radius: 8px; 
     width: 500px;
     max-width: 90%;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    position: relative;
+    position: absolute; /* Added for transform centering */
+    top: 50%; /* Added for transform centering */
+    left: 50%; /* Added for transform centering */
+    transform: translate(-50%, -50%); /* Added for true centering */
+    max-height: 90vh; /* Added to prevent clipping for tall modals */
+    overflow-y: auto; /* Added to enable scrolling within the modal content */
 }
 
 /* Tabs */
