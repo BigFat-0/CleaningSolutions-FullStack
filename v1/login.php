@@ -60,6 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <button type="submit" class="btn-auth btn-primary">Login</button>
             <a href="register.php" class="btn-auth btn-secondary">Register</a>
+            <a href="get_quote.php" class="btn-auth btn-success" style="margin-top: 10px; background-color: #27ae60; color: white;">Need a service? Get a Quote</a>
         </form>
     </div>
 </body>
