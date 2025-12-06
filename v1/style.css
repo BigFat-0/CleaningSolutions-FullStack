@@ -246,7 +246,7 @@ th {
     .container, .admin-main { padding: var(--spacing-md); }
 
     /* Utility to hide elements on mobile */
-    .d-none-mobile { display: none !important; }
+    .d-none-mobile, .mobile-hide { display: none !important; }
 
     /* Card View for Tables on Mobile (Optional, strict horizontal scroll is safer for data density, staying with .table-responsive for now) */
     
@@ -266,6 +266,61 @@ th {
         flex-wrap: wrap;
         font-size: 0.8rem;
     }
+
+    .auth-card {
+        width: 95%;
+        margin: 1rem auto;
+        padding: 1.5rem;
+    }
+    
+    /* Mobile Full Width Buttons */
+    .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+/* Desktop Auth Card Override */
+@media (min-width: 769px) {
+    .auth-card {
+        max-width: 500px;
+        margin: 5rem auto;
+        padding: 2rem;
+    }
+}
+
+/* Shared Auth/Card Styles */
+.auth-card {
+    background: var(--card-background);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+/* Column Utilities */
+.time-col {
+    width: 80px;
+}
+
+.name-col {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px; /* Adjust as needed */
+}
+
+.page-padding {
+    padding: 20px;
+}
+
+/* Form Enhancements */
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px; /* Prevent zoom on iOS */
+    margin-bottom: 15px; /* Added spacing */
 }
 
 /* Interaction */

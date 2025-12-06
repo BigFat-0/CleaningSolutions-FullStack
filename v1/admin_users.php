@@ -91,9 +91,10 @@ $stmt->execute([$term, $term, $term]);
 $users = $stmt->fetchAll();
 ?>
 
-<div class="admin-container">
-    <div class="page-header">
+<div class="admin-container page-padding">
+    <div class="page-header" style="display: flex; justify-content: space-between; align-items: center;">
         <h1><i class="fas fa-users"></i> User Management</h1>
+        <button onclick="openAddUserModal()" class="btn btn-primary"><i class="fas fa-plus"></i> New User</button>
     </div>
 
     <?php if ($message): ?>
@@ -101,32 +102,6 @@ $users = $stmt->fetchAll();
             <?php echo htmlspecialchars($message); ?>
         </div>
     <?php endif; ?>
-
-    <!-- Add User Form -->
-    <div class="stats-grid">
-        <div class="stat-card" style="grid-column: span 3;">
-            <h3>Add New User</h3>
-            <form method="post" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
-                <input type="text" name="first_name" placeholder="First Name" class="form-control" required>
-                <input type="text" name="last_name" placeholder="Last Name" class="form-control" required>
-                <input type="email" name="email" placeholder="Email" class="form-control" required>
-                <input type="text" name="phone_number" placeholder="Phone" class="form-control" required>
-                <input type="text" name="billing_address" placeholder="Billing Address" class="form-control" required>
-                <select name="security_question" class="form-control" required>
-                    <option value="Mother's Maiden Name">Mother's Maiden Name</option>
-                    <option value="First Pet">First Pet</option>
-                    <option value="Primary School">Primary School</option>
-                </select>
-                <input type="text" name="security_answer" placeholder="Security Answer" class="form-control" required>
-                <input type="password" name="password" placeholder="Password" class="form-control" required>
-                <select name="role" class="form-control">
-                    <option value="customer">Customer</option>
-                    <option value="staff">Staff</option>
-                </select>
-                <button type="submit" name="create_user" class="btn btn-primary" style="grid-column: span 3;">Create User</button>
-            </form>
-        </div>
-    </div>
 
     <!-- Search -->
     <form method="get" style="margin: 20px 0; display: flex; gap: 10px;">
@@ -171,9 +146,65 @@ $users = $stmt->fetchAll();
     </div>
 </div>
 
+<!-- Add User Modal -->
+<div id="addUserModal" class="modal">
+    <div class="modal-content">
+        <h3>Add New User</h3>
+        <form method="post">
+            <div class="form-group">
+                <label>First Name</label>
+                <input type="text" name="first_name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" name="last_name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Phone</label>
+                <input type="text" name="phone_number" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Billing Address</label>
+                <textarea name="billing_address" class="form-control" required></textarea>
+            </div>
+            <div class="form-group">
+                <label>Security Question</label>
+                <select name="security_question" class="form-control" required>
+                    <option value="Mother's Maiden Name">Mother's Maiden Name</option>
+                    <option value="First Pet">First Pet</option>
+                    <option value="Primary School">Primary School</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Security Answer</label>
+                <input type="text" name="security_answer" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" name="password" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Role</label>
+                <select name="role" class="form-control">
+                    <option value="customer">Customer</option>
+                    <option value="staff">Staff</option>
+                </select>
+            </div>
+            <div style="text-align:right; margin-top:10px;">
+                <button type="button" class="btn btn-danger" onclick="document.getElementById('addUserModal').style.display='none'">Cancel</button>
+                <button type="submit" name="create_user" class="btn btn-primary">Create User</button>
+            </div>
+        </form>
+    </div>
+</div>
+
 <!-- Edit Modal -->
-<div id="editModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); justify-content:center; align-items:center;">
-    <div style="background:white; padding:20px; border-radius:8px; width:400px;">
+<div id="editModal" class="modal">
+    <div class="modal-content">
         <h3>Edit User</h3>
         <form method="post">
             <input type="hidden" name="edit_id" id="modal_edit_id">
@@ -206,6 +237,9 @@ $users = $stmt->fetchAll();
 </div>
 
 <script>
+function openAddUserModal() {
+    document.getElementById('addUserModal').style.display = 'flex';
+}
 function openEditModal(id, first, last, email, billing) {
     document.getElementById('editModal').style.display = 'flex';
     document.getElementById('modal_edit_id').value = id;

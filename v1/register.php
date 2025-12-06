@@ -51,10 +51,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h2>Customer Registration</h2>
+    <div class="auth-card">
+        <h2 style="text-align: center; margin-bottom: 20px;">Customer Registration</h2>
         <?php if ($message): ?>
-            <div class="alert alert-error"><?php echo htmlspecialchars($message); ?></div>
+            <div class="alert alert-error" style="color: red; margin-bottom: 15px;"><?php echo htmlspecialchars($message); ?></div>
         <?php endif; ?>
         <form method="post" action="">
             <div class="form-group">
@@ -94,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label>Password</label>
                 <input type="password" name="password" required>
             </div>
-            <button type="submit">Register</button>
+            <button type="submit" class="btn btn-primary">Register</button>
             <a href="login.php" class="btn btn-secondary">Already have an account? Login</a>
         </form>
     </div>

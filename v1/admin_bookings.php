@@ -44,7 +44,7 @@ $users = $pdo->query("SELECT id, first_name, last_name, email FROM users ORDER B
 $show_create = isset($_GET['action']) && $_GET['action'] == 'create';
 ?>
 
-<div class="admin-container">
+<div class="admin-container page-padding">
     <div class="page-header">
         <h1><i class="fas fa-list"></i> All Bookings</h1>
         <?php if (!$show_create): ?>
@@ -59,7 +59,7 @@ $show_create = isset($_GET['action']) && $_GET['action'] == 'create';
     <?php endif; ?>
 
     <?php if ($show_create): ?>
-    <div class="form-card" style="margin-bottom: 30px;">
+    <div class="auth-card" style="margin-bottom: 30px;">
         <h3>Create Booking</h3>
         <form method="post">
             <div class="form-group">

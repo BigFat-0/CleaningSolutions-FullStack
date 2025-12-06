@@ -127,20 +127,20 @@ $bookings = $stmt->fetchAll();
                         <thead>
                             <tr>
                                 <th>Date</th>
-                                <th>Description</th>
+                                <th class="mobile-hide">Description</th>
                                 <th>Status</th>
                                 <th>Amount</th>
-                                <th>Action</th>
+                                <th class="mobile-hide">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php foreach ($bookings as $b): ?>
-                                <tr>
+                                <tr class="clickable-row" onclick='openBookingModal(<?php echo json_encode($b); ?>)'>
                                     <td>
                                         <?php echo date('M d', strtotime($b['scheduled_date'])); ?><br>
                                         <small style="color:#777;"><?php echo date('H:i', strtotime($b['scheduled_date'])); ?></small>
                                     </td>
-                                    <td><?php echo htmlspecialchars(substr($b['job_description'], 0, 30)) . (strlen($b['job_description'])>30 ? '...' : ''); ?></td>
+                                    <td class="mobile-hide"><?php echo htmlspecialchars(substr($b['job_description'], 0, 30)) . (strlen($b['job_description'])>30 ? '...' : ''); ?></td>
                                     <td><span class="status-badge status-<?php echo $b['status']; ?>"><?php echo ucfirst(str_replace('_', ' ', $b['status'])); ?></span></td>
                                     <td>
                                         <?php 
@@ -149,7 +149,7 @@ $bookings = $stmt->fetchAll();
                                             else echo '-';
                                         ?>
                                     </td>
-                                    <td>
+                                    <td class="mobile-hide" onclick="event.stopPropagation()">
                                         <form method="post" style="display:inline;">
                                             <input type="hidden" name="booking_id" value="<?php echo $b['id']; ?>">
                                             
@@ -216,9 +216,73 @@ $bookings = $stmt->fetchAll();
         </div>
     </div>
 
+    <!-- Booking Details Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <h3 id="modal-title">Booking Details</h3>
+            <div id="modal-body">
+                <p><strong>Date:</strong> <span id="modal-date"></span></p>
+                <p><strong>Status:</strong> <span id="modal-status"></span></p>
+                <p><strong>Address:</strong> <span id="modal-address"></span></p>
+                <p><strong>Description:</strong></p>
+                <p id="modal-desc" style="background:#f9f9f9; padding:10px; border-radius:4px;"></p>
+                <p><strong>Price:</strong> <span id="modal-price"></span></p>
+                
+                <div id="modal-actions" style="margin-top: 20px; border-top: 1px solid #eee; padding-top: 10px;">
+                    <!-- Actions will be injected here -->
+                </div>
+            </div>
+            <button onclick="document.getElementById('bookingModal').style.display='none'" class="btn btn-secondary" style="width:100%; margin-top:10px;">Close</button>
+        </div>
+    </div>
+
     <script>
         function openProfileModal() { document.getElementById('profileModal').style.display = 'flex'; }
         function closeProfileModal() { document.getElementById('profileModal').style.display = 'none'; }
+
+        function openBookingModal(b) {
+            document.getElementById('bookingModal').style.display = 'flex';
+            document.getElementById('modal-title').innerText = 'Booking #' + b.id;
+            document.getElementById('modal-date').innerText = b.scheduled_date;
+            document.getElementById('modal-status').innerText = b.status.replace('_', ' ').toUpperCase();
+            document.getElementById('modal-address').innerText = b.service_address;
+            document.getElementById('modal-desc').innerText = b.job_description;
+            
+            let price = '-';
+            if (b.status == 'quoted' || b.status == 'confirmed') price = '$' + b.quoted_price;
+            else if (b.status == 'completed') price = '$' + b.actual_bill;
+            document.getElementById('modal-price').innerText = price;
+
+            // Generate Actions
+            let actionsHtml = '';
+            if (b.status == 'quoted') {
+                actionsHtml = `
+                    <form method="post" style="display:flex; gap:10px;">
+                        <input type="hidden" name="booking_id" value="${b.id}">
+                        <button type="submit" name="action" value="accept" class="btn btn-success">Accept Quote</button>
+                        <button type="submit" name="action" value="reject" class="btn btn-danger">Reject Quote</button>
+                    </form>`;
+            } else if (b.status == 'awaiting_quote' || b.status == 'confirmed') {
+                actionsHtml = `
+                    <form method="post">
+                        <input type="hidden" name="booking_id" value="${b.id}">
+                        <button type="submit" name="action" value="cancel" class="btn btn-danger" onclick="return confirm('Cancel this booking?')">Cancel Booking</button>
+                    </form>`;
+            } else if (b.status == 'rejected') {
+                actionsHtml = `
+                    <form method="post">
+                        <input type="hidden" name="booking_id" value="${b.id}">
+                        <button type="submit" name="action" value="undo_reject" class="btn btn-secondary">Undo Rejection</button>
+                    </form>`;
+            } else if (b.status == 'cancelled') {
+                actionsHtml = `
+                    <form method="post">
+                        <input type="hidden" name="booking_id" value="${b.id}">
+                        <button type="submit" name="action" value="resubmit" class="btn btn-success">Resubmit Request</button>
+                    </form>`;
+            }
+            document.getElementById('modal-actions').innerHTML = actionsHtml;
+        }
 
         function switchTab(tabName) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));

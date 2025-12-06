@@ -35,14 +35,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="nav">
-            <a href="dashboard.php">Dashboard</a>
-            <a href="logout.php">Logout</a>
+    <div class="auth-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h2 style="margin: 0;">Request a Quote</h2>
+            <a href="dashboard.php" class="btn btn-sm btn-secondary">Back</a>
         </div>
-        <h2>Request a Quote</h2>
+        
         <?php if ($message): ?>
-            <div class="alert alert-error"><?php echo htmlspecialchars($message); ?></div>
+            <div class="alert alert-error" style="color: red; margin-bottom: 15px;"><?php echo htmlspecialchars($message); ?></div>
         <?php endif; ?>
         <form method="post" action="">
             <div class="form-group">
@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label>Date/Time</label>
                 <input type="datetime-local" name="scheduled_date" required>
             </div>
-            <button type="submit">Submit Request</button>
+            <button type="submit" class="btn btn-primary">Submit Request</button>
         </form>
     </div>
 </body>

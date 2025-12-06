@@ -40,10 +40,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h2>Login</h2>
+    <div class="auth-card">
+        <h2 style="text-align: center; margin-bottom: 20px;">Login</h2>
         <?php if ($message): ?>
-            <div class="alert alert-error"><?php echo htmlspecialchars($message); ?></div>
+            <div class="alert alert-error" style="color: red; margin-bottom: 15px;"><?php echo htmlspecialchars($message); ?></div>
         <?php endif; ?>
         <form method="post" action="">
             <div class="form-group">
@@ -53,11 +53,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="form-group">
                 <label>Password</label>
                 <input type="password" name="password" required>
-                <div style="text-align: right; margin-top: 5px;">
+                <div style="text-align: right; margin-top: -10px; margin-bottom: 15px;">
                     <a href="reset_password.php" style="font-size: 0.9em;">Forgot Password?</a>
                 </div>
             </div>
-            <button type="submit">Login</button>
+            <button type="submit" class="btn btn-primary">Login</button>
             <a href="register.php" class="btn btn-secondary">Register</a>
         </form>
     </div>

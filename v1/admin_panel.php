@@ -28,16 +28,16 @@ $recent_requests = $stmt->fetchAll();
                     <table>
                         <thead>
                             <tr>
-                                <th>Time</th>
-                                <th>Client</th>
+                                <th class="time-col">Time</th>
+                                <th class="name-col">Client</th>
                                 <th class="d-none-mobile">Status</th>
                             </tr>
                         </thead>
                         <tbody>
                         <?php foreach ($todays_bookings as $b): ?>
                             <tr class="clickable-row" onclick="window.location='admin_booking_edit.php?id=<?php echo $b['id']; ?>'">
-                                <td><strong><?php echo date('H:i', strtotime($b['scheduled_date'])); ?></strong></td>
-                                <td>
+                                <td class="time-col"><strong><?php echo date('H:i', strtotime($b['scheduled_date'])); ?></strong></td>
+                                <td class="name-col">
                                     <?php echo htmlspecialchars($b['last_name']); ?>
                                     <small class="d-none-mobile" style="display:block; color:var(--text-light);"><?php echo htmlspecialchars($b['email']); ?></small>
                                 </td>

@@ -73,10 +73,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h2>Reset Password</h2>
+    <div class="auth-card">
+        <h2 style="text-align: center; margin-bottom: 20px;">Reset Password</h2>
         <?php if ($error): ?>
-            <div class="alert alert-error"><?php echo htmlspecialchars($error); ?></div>
+            <div class="alert alert-error" style="color: red; margin-bottom: 15px;"><?php echo htmlspecialchars($error); ?></div>
         <?php endif; ?>
 
         <?php if ($step == 1): ?>
@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <label>Email Address</label>
                 <input type="email" name="email" required>
             </div>
-            <button type="submit" name="step1">Next</button>
+            <button type="submit" name="step1" class="btn btn-primary">Next</button>
             <a href="login.php" class="btn btn-secondary">Back to Login</a>
         </form>
         <?php elseif ($step == 2): ?>
@@ -95,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <p><strong><?php echo htmlspecialchars($question_text); ?></strong></p>
                 <input type="password" name="security_answer" placeholder="Your Answer" required>
             </div>
-            <button type="submit" name="step2">Verify</button>
+            <button type="submit" name="step2" class="btn btn-primary">Verify</button>
         </form>
         <?php elseif ($step == 3): ?>
         <form method="post">
@@ -103,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <label>New Password</label>
                 <input type="password" name="new_password" required>
             </div>
-            <button type="submit" name="step3">Reset Password</button>
+            <button type="submit" name="step3" class="btn btn-primary">Reset Password</button>
         </form>
         <?php endif; ?>
     </div>
