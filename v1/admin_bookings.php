@@ -83,8 +83,10 @@ $show_create = isset($_GET['action']) && $_GET['action'] == 'create';
                 <label>Scheduled Date</label>
                 <input type="datetime-local" name="scheduled_date" class="form-control" required>
             </div>
-            <button type="submit" name="create_booking" class="btn btn-primary">Create</button>
-            <a href="admin_bookings.php" class="btn btn-danger">Cancel</a>
+            <div class="form-actions">
+                <a href="admin_bookings.php" class="btn btn-danger">Cancel</a>
+                <button type="submit" name="create_booking" class="btn btn-primary">Create</button>
+            </div>
         </form>
     </div>
     <?php endif; ?>

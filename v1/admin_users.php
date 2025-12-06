@@ -104,9 +104,11 @@ $users = $stmt->fetchAll();
     <?php endif; ?>
 
     <!-- Search -->
-    <form method="get" style="margin: 20px 0; display: flex; gap: 10px;">
-        <input type="text" name="search" placeholder="Search Name or Email..." value="<?php echo htmlspecialchars($search); ?>" class="form-control" style="flex:1;">
-        <button type="submit" class="btn btn-secondary">Search</button>
+    <form method="get" style="margin: 20px 0;">
+        <div class="mobile-stack">
+            <input type="text" name="search" placeholder="Search Name or Email..." value="<?php echo htmlspecialchars($search); ?>" class="form-control" style="flex:1;">
+            <button type="submit" class="btn btn-secondary">Search</button>
+        </div>
     </form>
 
     <!-- Table -->
@@ -120,25 +122,17 @@ $users = $stmt->fetchAll();
                     <th>Role</th>
                     <th><a href="?sort=total_revenue&order=<?php echo $next_order; ?>&search=<?php echo $search; ?>">Revenue <?php echo ($sort_by=='total_revenue')?($order=='ASC'?'▲':'▼'):''; ?></a></th>
                     <th><a href="?sort=created_at&order=<?php echo $next_order; ?>&search=<?php echo $search; ?>">Joined <?php echo ($sort_by=='created_at')?($order=='ASC'?'▲':'▼'):''; ?></a></th>
-                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($users as $u): ?>
-                <tr>
+                <tr class="clickable-row" onclick='openUserModal(<?php echo json_encode($u); ?>)'>
                     <td>#<?php echo $u['id']; ?></td>
                     <td><?php echo htmlspecialchars($u['first_name'] . ' ' . $u['last_name']); ?></td>
                     <td><?php echo htmlspecialchars($u['email']); ?></td>
                     <td><span class="badge badge-<?php echo $u['role']; ?>"><?php echo $u['role']; ?></span></td>
                     <td>$<?php echo number_format($u['total_revenue'], 2); ?></td>
                     <td><?php echo date('d M Y', strtotime($u['created_at'])); ?></td>
-                    <td>
-                        <button class="btn btn-sm btn-secondary" onclick="openEditModal(<?php echo $u['id']; ?>, '<?php echo htmlspecialchars(addslashes($u['first_name'])); ?>', '<?php echo htmlspecialchars(addslashes($u['last_name'])); ?>', '<?php echo htmlspecialchars(addslashes($u['email'])); ?>', '<?php echo htmlspecialchars(addslashes($u['billing_address'])); ?>')">Edit</button>
-                        <a href="?toggle_role_id=<?php echo $u['id']; ?>&current_role=<?php echo $u['role']; ?>" class="btn btn-sm btn-primary" onclick="return confirm('Toggle role?');">Role</a>
-                        <?php if ($u['id'] != $_SESSION['user_id']): ?>
-                        <a href="?delete_id=<?php echo $u['id']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Delete?');">Delete</a>
-                        <?php endif; ?>
-                    </td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>
@@ -194,7 +188,7 @@ $users = $stmt->fetchAll();
                     <option value="staff">Staff</option>
                 </select>
             </div>
-            <div style="text-align:right; margin-top:10px;">
+            <div class="form-actions">
                 <button type="button" class="btn btn-danger" onclick="document.getElementById('addUserModal').style.display='none'">Cancel</button>
                 <button type="submit" name="create_user" class="btn btn-primary">Create User</button>
             </div>
@@ -202,37 +196,57 @@ $users = $stmt->fetchAll();
     </div>
 </div>
 
-<!-- Edit Modal -->
-<div id="editModal" class="modal">
+<!-- User Details / Edit Modal -->
+<div id="userModal" class="modal">
     <div class="modal-content">
-        <h3>Edit User</h3>
-        <form method="post">
-            <input type="hidden" name="edit_id" id="modal_edit_id">
-            <div class="form-group">
-                <label>First Name</label>
-                <input type="text" name="first_name" id="modal_first" class="form-control" required>
+        <h3 id="modal_title">User Details</h3>
+        
+        <!-- View Mode -->
+        <div id="view_mode">
+            <p><strong>Name:</strong> <span id="view_name"></span></p>
+            <p><strong>Email:</strong> <span id="view_email"></span></p>
+            <p><strong>Role:</strong> <span id="view_role"></span></p>
+            <p><strong>Revenue:</strong> <span id="view_revenue"></span></p>
+            <p><strong>Billing Address:</strong> <span id="view_billing"></span></p>
+            
+            <div class="form-actions" style="margin-top: 20px;">
+                <button class="btn btn-primary" onclick="switchToEditMode()">Edit</button>
+                <a id="role_link" class="btn btn-secondary" onclick="return confirm('Toggle role?');">Toggle Role</a>
+                <a id="delete_link" class="btn btn-danger" onclick="return confirm('Delete?');">Delete</a>
+                <button class="btn btn-secondary" onclick="document.getElementById('userModal').style.display='none'">Close</button>
             </div>
-            <div class="form-group">
-                <label>Last Name</label>
-                <input type="text" name="last_name" id="modal_last" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label>Email</label>
-                <input type="email" name="email" id="modal_email" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label>Billing Address</label>
-                <textarea name="billing_address" id="modal_billing" class="form-control" required></textarea>
-            </div>
-            <div class="form-group">
-                <label>Reset Password (Optional)</label>
-                <input type="password" name="new_password" class="form-control">
-            </div>
-            <div style="text-align:right; margin-top:10px;">
-                <button type="button" class="btn btn-danger" onclick="document.getElementById('editModal').style.display='none'">Cancel</button>
-                <button type="submit" name="edit_user" class="btn btn-primary">Save</button>
-            </div>
-        </form>
+        </div>
+
+        <!-- Edit Mode (Hidden by default) -->
+        <div id="edit_mode" style="display:none;">
+            <form method="post">
+                <input type="hidden" name="edit_id" id="modal_edit_id">
+                <div class="form-group">
+                    <label>First Name</label>
+                    <input type="text" name="first_name" id="modal_first" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Last Name</label>
+                    <input type="text" name="last_name" id="modal_last" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" id="modal_email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Billing Address</label>
+                    <textarea name="billing_address" id="modal_billing" class="form-control" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Reset Password (Optional)</label>
+                    <input type="password" name="new_password" class="form-control">
+                </div>
+                <div class="form-actions" style="margin-top:10px;">
+                    <button type="button" class="btn btn-danger" onclick="switchToViewMode()">Cancel</button>
+                    <button type="submit" name="edit_user" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 
@@ -240,13 +254,45 @@ $users = $stmt->fetchAll();
 function openAddUserModal() {
     document.getElementById('addUserModal').style.display = 'flex';
 }
-function openEditModal(id, first, last, email, billing) {
-    document.getElementById('editModal').style.display = 'flex';
-    document.getElementById('modal_edit_id').value = id;
-    document.getElementById('modal_first').value = first;
-    document.getElementById('modal_last').value = last;
-    document.getElementById('modal_email').value = email;
-    document.getElementById('modal_billing').value = billing;
+
+function openUserModal(u) {
+    document.getElementById('userModal').style.display = 'flex';
+    switchToViewMode();
+
+    // Populate View
+    document.getElementById('view_name').textContent = u.first_name + ' ' + u.last_name;
+    document.getElementById('view_email').textContent = u.email;
+    document.getElementById('view_role').textContent = u.role;
+    document.getElementById('view_revenue').textContent = '$' + (parseFloat(u.total_revenue)||0).toFixed(2);
+    document.getElementById('view_billing').textContent = u.billing_address;
+
+    // Links
+    document.getElementById('role_link').href = "?toggle_role_id=" + u.id + "&current_role=" + u.role;
+    document.getElementById('delete_link').href = "?delete_id=" + u.id;
+    if (u.id == <?php echo $_SESSION['user_id']; ?>) {
+         document.getElementById('delete_link').style.display = 'none';
+    } else {
+         document.getElementById('delete_link').style.display = 'inline-block';
+    }
+
+    // Populate Edit Form
+    document.getElementById('modal_edit_id').value = u.id;
+    document.getElementById('modal_first').value = u.first_name;
+    document.getElementById('modal_last').value = u.last_name;
+    document.getElementById('modal_email').value = u.email;
+    document.getElementById('modal_billing').value = u.billing_address;
+}
+
+function switchToEditMode() {
+    document.getElementById('view_mode').style.display = 'none';
+    document.getElementById('edit_mode').style.display = 'block';
+    document.getElementById('modal_title').textContent = 'Edit User';
+}
+
+function switchToViewMode() {
+    document.getElementById('view_mode').style.display = 'block';
+    document.getElementById('edit_mode').style.display = 'none';
+    document.getElementById('modal_title').textContent = 'User Details';
 }
 </script>
 </body>

@@ -278,6 +278,14 @@ th {
         width: 100%;
         margin-bottom: 10px;
     }
+
+    .mobile-stack {
+        flex-direction: column;
+    }
+    
+    .mobile-stack .btn, .mobile-stack button, .mobile-stack input {
+        width: 100%;
+    }
 }
 
 /* Desktop Auth Card Override */
@@ -294,6 +302,32 @@ th {
     background: var(--card-background);
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     border-radius: 8px;
+    width: 90%; /* Mobile default */
+    margin: 20px auto; /* Mobile default */
+    padding: 1.5rem; /* Mobile default */
+}
+
+/* Mobile Search Stack */
+.mobile-stack {
+    display: flex;
+    gap: 10px;
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.form-actions .btn, .form-actions a {
+    /* Ensure consistent height/padding if needed, though .btn class usually handles it */
+}
+
+/* Edit Container */
+.edit-container {
+    padding: 0 20px;
 }
 
 /* Column Utilities */
