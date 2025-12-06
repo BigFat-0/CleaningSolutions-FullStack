@@ -58,8 +58,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <a href="reset_password.php" style="font-size: 0.9em;">Forgot Password?</a>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Login</button>
-            <a href="register.php" class="btn btn-secondary">Register</a>
+            <button type="submit" class="btn-auth btn-primary">Login</button>
+            <a href="register.php" class="btn-auth btn-secondary">Register</a>
         </form>
     </div>
 </body>
