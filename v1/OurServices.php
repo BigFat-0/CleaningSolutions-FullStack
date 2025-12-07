@@ -2,6 +2,7 @@
 <html  >
 <head>
   <!-- Site made with Mobirise Website Builder v6.1.9, https://mobirise.com -->
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Mobirise v6.1.9, mobirise.com">
