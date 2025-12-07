@@ -100,7 +100,7 @@
                         
                         <p class="mbr-text mbr-fonts-style mt-3 display-4">Emergency Cleaning service is designed to respond quickly and restore order when you need it most&nbsp;<br></p>
                     </div>
-                    <div class="mbr-section-btn item-footer mt-2"><a href="get_quote.php" class="btn item-btn btn-black-outline display-7" target="_blank">Enquire Now &gt;</a></div>
+                    <div class="mbr-section-btn item-footer mt-2"><a href="Contact.php" class="btn item-btn btn-black-outline display-7" target="_blank">Enquire Now &gt;</a></div>
                 </div>
             </div>
             <div class="item features-image col-12 col-md-6 col-lg-4">
