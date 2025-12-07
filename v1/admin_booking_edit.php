@@ -41,7 +41,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // It implies whenever that query runs.
         sendWebhook('status-update', [
             'id' => $id,
-            'status' => $status
+            'status' => $status,
+            'user_email' => $booking['email']
         ]);
 
         $message = "Booking updated successfully.";

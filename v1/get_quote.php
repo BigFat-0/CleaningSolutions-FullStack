@@ -60,7 +60,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             sendWebhook('new-booking', [
                 'id' => $booking_id,
                 'description' => $job_description,
-                'date' => $scheduled_date
+                'date' => $scheduled_date,
+                'user_email' => $email // Added user_email
             ]);
 
             // Commit

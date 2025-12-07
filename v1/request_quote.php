@@ -22,11 +22,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($stmt->execute([$user_id, $job_description, $service_address, $scheduled_date])) {
             $booking_id = $pdo->lastInsertId();
             
+            // Fetch User Email
+            $stmt = $pdo->prepare("SELECT email FROM users WHERE id = ?");
+            $stmt->execute([$user_id]);
+            $user_email = $stmt->fetchColumn();
+
             // Webhook: New Booking
             sendWebhook('new-booking', [
                 'id' => $booking_id,
                 'description' => $job_description,
-                'date' => $scheduled_date
+                'date' => $scheduled_date,
+                'user_email' => $user_email
             ]);
 
             header("Location: dashboard.php");
