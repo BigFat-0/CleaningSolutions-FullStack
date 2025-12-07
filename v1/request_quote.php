@@ -2,6 +2,7 @@
 // v1/request_quote.php
 require('auth_session.php');
 require('db_connect.php');
+require('n8n_helper.php');
 
 $message = '';
 
@@ -19,6 +20,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt = $pdo->prepare($sql);
 
         if ($stmt->execute([$user_id, $job_description, $service_address, $scheduled_date])) {
+            $booking_id = $pdo->lastInsertId();
+            
+            // Webhook: New Booking
+            sendWebhook('new-booking', [
+                'id' => $booking_id,
+                'description' => $job_description,
+                'date' => $scheduled_date
+            ]);
+
             header("Location: dashboard.php");
             exit();
         } else {

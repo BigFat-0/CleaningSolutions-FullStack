@@ -2,6 +2,7 @@
 // v1/admin_booking_edit.php
 require_once 'db_connect.php';
 require_once 'admin_header.php';
+require_once 'n8n_helper.php';
 
 $id = $_GET['id'] ?? null;
 if (!$id) {
@@ -33,6 +34,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $pdo->prepare($sql);
     
     if ($stmt->execute([$job_desc, $address, $date, $status, $quoted ?: null, $bill ?: null, $id])) {
+        // Webhook: Status Update
+        // Only fire if status changed? Prompt implies just "Trigger 'Status Update'".
+        // I will trigger it on every update for simplicity, or I could check if status changed. 
+        // "Find the logic where the Admin updates the status (e.g., UPDATE bookings SET status...)."
+        // It implies whenever that query runs.
+        sendWebhook('status-update', [
+            'id' => $id,
+            'status' => $status
+        ]);
+
         $message = "Booking updated successfully.";
         // Refresh data
         $stmt = $pdo->prepare("SELECT b.*, u.email FROM bookings b JOIN users u ON b.user_id = u.id WHERE b.id = ?");

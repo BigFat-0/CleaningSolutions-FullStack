@@ -1,5 +1,6 @@
 <?php
 require('db_connect.php');
+require('n8n_helper.php');
 session_start();
 
 $message = '';
@@ -43,9 +44,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->execute([$first_name, $last_name, $email, $phone, $billing_address, $password_hash, $security_question, $security_answer_hash, $role]);
             $user_id = $pdo->lastInsertId();
 
+            // Webhook: New User
+            sendWebhook('new-user', [
+                'name' => $first_name . ' ' . $last_name,
+                'email' => $email,
+                'phone' => $phone
+            ]);
+
             // Step C: Insert Booking
             $stmt = $pdo->prepare("INSERT INTO bookings (user_id, job_description, service_address, scheduled_date, status) VALUES (?, ?, ?, ?, 'awaiting_quote')");
             $stmt->execute([$user_id, $job_description, $service_address, $scheduled_date]);
+            $booking_id = $pdo->lastInsertId();
+
+            // Webhook: New Booking
+            sendWebhook('new-booking', [
+                'id' => $booking_id,
+                'description' => $job_description,
+                'date' => $scheduled_date
+            ]);
 
             // Commit
             $pdo->commit();

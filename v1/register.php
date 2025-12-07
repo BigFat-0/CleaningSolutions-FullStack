@@ -1,6 +1,7 @@
 <?php
 // v1/register.php
 require('db_connect.php');
+require('n8n_helper.php');
 session_start();
 
 $message = '';
@@ -34,6 +35,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt = $pdo->prepare($sql);
             
             if ($stmt->execute([$first_name, $last_name, $email, $phone, $billing_address, $password_hash, $security_question, $security_answer_hash, $role])) {
+                 // Trigger Webhook
+                 sendWebhook('new-user', [
+                    'name' => $first_name . ' ' . $last_name,
+                    'email' => $email,
+                    'phone' => $phone
+                 ]);
+
                  header("Location: login.php");
                  exit();
             } else {
