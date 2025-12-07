@@ -75,6 +75,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <div class="auth-card" style="max-width: 600px;">
+        <div style="text-align: right; margin-bottom: 10px;">
+            <a href="login.php" style="color: var(--accent-color); text-decoration: none; font-size: 0.9em;">Already have an account? Login</a>
+        </div>
         <h2 style="text-align: center; margin-bottom: 20px;">Get a Free Quote</h2>
         
         <?php if ($error): ?>
@@ -151,9 +154,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
 
             <button type="submit" class="btn-auth btn-primary" style="margin-top: 20px;">Submit Request</button>
-            <p style="text-align: center; margin-top: 15px;">
-                <a href="login.php" style="color: var(--accent-color); text-decoration: none;">Already have an account? Login</a>
-            </p>
+            <a href="login.php" class="btn-auth btn-secondary">Already have an account? Login</a>
         </form>
     </div>
 
