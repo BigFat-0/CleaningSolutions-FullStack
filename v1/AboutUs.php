@@ -62,7 +62,7 @@
 						<a class="nav-link link text-black text-primary display-4" href="Contact.php">Contact</a>
 					</li></ul>
 				
-				<div class="navbar-buttons mbr-section-btn"><a class="btn btn-white-outline display-4" href="index.php#form02-6">Enquire Now</a></div>
+				<div class="navbar-buttons mbr-section-btn"><a class="btn btn-white-outline display-4" href="get_quote.php">Enquire Now</a></div>
 			</div>
 		</div>
 	</nav>

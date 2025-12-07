@@ -62,7 +62,7 @@
 						<a class="nav-link link text-black text-primary display-4" href="Contact.php">Contact</a>
 					</li></ul>
 				
-				<div class="navbar-buttons mbr-section-btn"><a class="btn btn-white-outline display-4" href="index.php#form02-6">Enquire Now</a></div>
+				<div class="navbar-buttons mbr-section-btn"><a class="btn btn-white-outline display-4" href="get_quote.php">Enquire Now</a></div>
 			</div>
 		</div>
 	</nav>
@@ -100,7 +100,7 @@
                         
                         <p class="mbr-text mbr-fonts-style mt-3 display-4">Emergency Cleaning service is designed to respond quickly and restore order when you need it most&nbsp;<br></p>
                     </div>
-                    <div class="mbr-section-btn item-footer mt-2"><a href="" class="btn item-btn btn-black-outline display-7" target="_blank">Enquire Now &gt;</a></div>
+                    <div class="mbr-section-btn item-footer mt-2"><a href="get_quote.php" class="btn item-btn btn-black-outline display-7" target="_blank">Enquire Now &gt;</a></div>
                 </div>
             </div>
             <div class="item features-image col-12 col-md-6 col-lg-4">
@@ -113,7 +113,7 @@
                         
                         <p class="mbr-text mbr-fonts-style mt-3 display-4">Our Office Cleaning service is tailored to keep your workplace spotless, hygienic, and welcoming.&nbsp;<br></p>
                     </div>
-                    <div class="mbr-section-btn item-footer mt-2"><a href="" class="btn item-btn btn-black-outline display-7" target="_blank">Enquire Now &gt;</a></div>
+                    <div class="mbr-section-btn item-footer mt-2"><a href="get_quote.php" class="btn item-btn btn-black-outline display-7" target="_blank">Enquire Now &gt;</a></div>
                 </div>
             </div><div class="item features-image col-12 col-md-6 col-lg-4">
                 <div class="item-wrapper">
@@ -125,7 +125,7 @@
                         
                         <p class="mbr-text mbr-fonts-style mt-3 display-4">Everyone is unique, and so are your cleaning needs. We offer Tailored Cleaning Services designed around your specific requirements.<br></p>
                     </div>
-                    <div class="mbr-section-btn item-footer mt-2"><a href="" class="btn item-btn btn-black-outline display-7" target="_blank">Enquire Now &gt;</a></div>
+                    <div class="mbr-section-btn item-footer mt-2"><a href="get_quote.php" class="btn item-btn btn-black-outline display-7" target="_blank">Enquire Now &gt;</a></div>
                 </div>
             </div><div class="item features-image col-12 col-md-6 col-lg-4">
                 <div class="item-wrapper">
@@ -137,7 +137,7 @@
                         
                         <p class="mbr-text mbr-fonts-style mt-3 display-7">Our service ensures your glass surfaces sparkle inside and out, enhancing natural light and curb appeal.&nbsp;<br></p>
                     </div>
-                    <div class="mbr-section-btn item-footer mt-2"><a href="" class="btn item-btn btn-black-outline display-7" target="_blank">Enquire Now &gt;</a></div>
+                    <div class="mbr-section-btn item-footer mt-2"><a href="get_quote.php" class="btn item-btn btn-black-outline display-7" target="_blank">Enquire Now &gt;</a></div>
                 </div>
             </div><div class="item features-image col-12 col-md-6 col-lg-4">
                 <div class="item-wrapper">
@@ -149,7 +149,7 @@
                         
                         <p class="mbr-text mbr-fonts-style mt-3 display-7">Our service restores the look of driveways, patios, decks, and exterior walls, leaving them fresh, safe, and appealing.&nbsp;<br></p>
                     </div>
-                    <div class="mbr-section-btn item-footer mt-2"><a href="" class="btn item-btn btn-black-outline display-7" target="_blank">Enquire Now &gt;</a></div>
+                    <div class="mbr-section-btn item-footer mt-2"><a href="get_quote.php" class="btn item-btn btn-black-outline display-7" target="_blank">Enquire Now &gt;</a></div>
                 </div>
             </div><div class="item features-image col-12 col-md-6 col-lg-4">
                 <div class="item-wrapper">
@@ -161,7 +161,7 @@
                         
                         <p class="mbr-text mbr-fonts-style mt-3 display-7">keeps your drainage system clear and functioning properly, protecting your home or business from costly repairs.<br></p>
                     </div>
-                    <div class="mbr-section-btn item-footer mt-2"><a href="" class="btn item-btn btn-black-outline display-7" target="_blank">Enquire Now &gt;</a></div>
+                    <div class="mbr-section-btn item-footer mt-2"><a href="get_quote.php" class="btn item-btn btn-black-outline display-7" target="_blank">Enquire Now &gt;</a></div>
                 </div>
             </div><div class="item features-image col-12 col-md-6 col-lg-4">
                 <div class="item-wrapper">
@@ -174,7 +174,7 @@
                         <p class="mbr-text mbr-fonts-style mt-3 display-7">Restores freshness, removes stains, and extends the life of your flooring, leaving your home or office healthier and more inviting.
 <br><br></p>
                     </div>
-                    <div class="mbr-section-btn item-footer mt-2"><a href="" class="btn item-btn btn-black-outline display-7" target="_blank">Enquire Now &gt;</a></div>
+                    <div class="mbr-section-btn item-footer mt-2"><a href="get_quote.php" class="btn item-btn btn-black-outline display-7" target="_blank">Enquire Now &gt;</a></div>
                 </div>
             </div><div class="item features-image col-12 col-md-6 col-lg-4">
                 <div class="item-wrapper">
@@ -186,7 +186,7 @@
                         
                         <p class="mbr-text mbr-fonts-style mt-3 display-7">Whether it’s a quick turnover or a deep refresh we help hosts maintain 5‑star standards.<br></p>
                     </div>
-                    <div class="mbr-section-btn item-footer mt-2"><a href="" class="btn item-btn btn-black-outline display-7" target="_blank">Enquire Now &gt;</a></div>
+                    <div class="mbr-section-btn item-footer mt-2"><a href="get_quote.php" class="btn item-btn btn-black-outline display-7" target="_blank">Enquire Now &gt;</a></div>
                 </div>
             </div>
         </div>
