@@ -1,144 +1,223 @@
 <!DOCTYPE html>
-<html lang="en">
+<html  >
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Hair Cutting Hub</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="" id="theme-css">
-    <script>
-        const selectedTheme = localStorage.getItem('selectedTheme');
-        if (selectedTheme && selectedTheme !== 'default') {
-            document.getElementById('theme-css').href = `themes/${selectedTheme}-theme.css`;
-        }
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Site made with Mobirise Website Builder v6.1.9, https://mobirise.com -->
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v6.1.9, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/logo.png-160x186.png" type="image/x-icon">
+  <meta name="description" content="">
+  
+  
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/animatecss/animate.css">
+  <link rel="stylesheet" href="assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="assets/socicon/css/styles.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link href="assets/fonts/style.css" rel="stylesheet">
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Inter+Tight:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter+Tight:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"></noscript>
+  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css?v=RDoU42"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css?v=RDoU42" type="text/css">
+
+  
+  
+  
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <i class="fas fa-cut"></i>
-                <span>Hair Cutting Hub</span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="index.php" class="nav-link">Home</a></li>
-                <li><a href="services.php" class="nav-link">Services</a></li>
-                <li><a href="barbers.php" class="nav-link">Barbers</a></li>
-                <li><a href="booking.php" class="nav-link">Booking</a></li>
-                <li><a href="gallery.php" class="nav-link">Gallery</a></li>
-                <li><a href="contact.php" class="nav-link active">Contact</a></li>
-                <li><a href="theme-selector.php" class="nav-link theme-btn"><i class="fas fa-palette"></i> Themes</a></li>
-                <li><a href="login.php" class="nav-link login-link">Login</a></li>
-            </ul>
+  
+  <section data-bs-version="5.1" class="menu menu2 cid-tJS6tZXiPa" once="menu" id="menu02-1i">
+	
+
+	<nav class="navbar navbar-dropdown navbar-expand-lg">
+		<div class="container">
+			<div class="navbar-brand">
+				<span class="navbar-logo">
+					
+						<a href="index.html"><img src="assets/images/logo.png-160x186.png" alt="" style="height: 5rem;"></a>
+					
+				</span>
+				
+			</div>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+				<div class="hamburger">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item">
+						<a class="nav-link link text-black text-primary display-4" href="OurServices.php" aria-expanded="false">Services</a>
+					</li><li class="nav-item">
+						<a class="nav-link link text-black text-primary display-4" href="AboutUs.php">About</a>
+					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link link text-black text-primary display-4" href="Contact.php">Contact</a>
+					</li></ul>
+				
+				<div class="navbar-buttons mbr-section-btn"><a class="btn btn-white-outline display-4" href="get_quote.php">Enquire Now</a></div>
+			</div>
+		</div>
+	</nav>
+</section>
+
+<section data-bs-version="5.1" class="contacts1 cid-v4BHhsjA6O" id="contacts1-1y">
+
+    
+
+    
+    
+    <div class="container-fluid">
+        <div class="mbr-section-head">
+            <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
+                <strong>Contact Us</strong></h3>
+            
         </div>
-    </nav>
-
-    <main style="padding-top: 100px;">
-        <section class="contact">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Get In Touch</h2>
-                    <p class="section-subtitle">Visit us or get in touch</p>
-                </div>
-                <div class="contact-content">
-                    <div class="contact-info">
-                        <div class="contact-card glass-card">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <h3>Location</h3>
-                            <p>123 Main Street<br>Downtown, City 12345</p>
+        <div class="row justify-content-center mt-4">
+            <div class="card col-12 col-lg-6">
+                <div class="card-wrapper">
+                    <div class="card-box align-center">
+                        <div class="image-wrapper">
+                            <span class="mbr-iconfont mobi-mbri-letter mobi-mbri" style="color: rgb(0, 0, 0); fill: rgb(0, 0, 0);"></span>
                         </div>
-                        <div class="contact-card glass-card">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <h3>Phone</h3>
-                            <p><a href="tel:+1234567890">+1 (234) 567-8900</a></p>
-                        </div>
-                        <div class="contact-card glass-card">
-                            <div class="contact-icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <h3>Hours</h3>
-                            <p>Mon-Fri: 9AM-7PM<br>Sat: 9AM-6PM<br>Sun: 10AM-5PM</p>
-                        </div>
-                        <div class="contact-form glass-card">
-                            <h3>Send Message</h3>
-                            <form>
-                                <input type="text" placeholder="Your Name" class="glass-input">
-                                <input type="email" placeholder="Your Email" class="glass-input">
-                                <textarea placeholder="Your Message" class="glass-input"></textarea>
-                                <button type="submit" class="btn-primary">Send Message</button>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="map-container">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.1234567890123!2d-74.0059413!3d40.7127753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQyJzQ2LjAiTiA3NMKwMDAnMjEuNCJX!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus" 
-                            width="100%" 
-                            height="100%" 
-                            style="border:0; border-radius: 15px;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
+                        <h4 class="card-title mbr-fonts-style mb-2 display-2"><strong>Email</strong>
+                        </h4>
+                        <p class="mbr-text mbr-fonts-style mb-2 display-4">
+                            We will reply as soon as possible</p>
+                        <h5 class="link mbr-fonts-style display-7"><a href="mailto:info@timscleaning.co.uk" class="text-black">Send us an
+                                email</a>
+                        </h5>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="footer-gradient"></div>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <i class="fas fa-cut"></i>
-                        <span>Hair Cutting Hub</span>
-                    </div>
-                    <p>Premium grooming experience with master barbers</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+            <div class="card col-12 col-lg-6">
+                <div class="card-wrapper">
+                    <div class="card-box align-center">
+                        <div class="image-wrapper">
+                            <span class="mbr-iconfont mobi-mbri-mobile-2 mobi-mbri" style="color: rgb(0, 0, 0); fill: rgb(0, 0, 0);"></span>
+                        </div>
+                        <h4 class="card-title mbr-fonts-style align-center mb-2 display-2">
+                            <strong>Phone</strong>
+                        </h4>
+                        <p class="mbr-text mbr-fonts-style mb-2 display-4">
+                            Mon - Sat 08:00 - 22:00</p>
+                        <h5 class="link mbr-black mbr-fonts-style display-7">
+                            <a href="tel:07762627212" class="text-black">Call&nbsp;07762627212</a></h5>
                     </div>
                 </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="services.php">Services</a></li>
-                        <li><a href="barbers.php">Barbers</a></li>
-                        <li><a href="booking.php">Booking</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="services.php">Haircuts</a></li>
-                        <li><a href="services.php">Beard Styling</a></li>
-                        <li><a href="services.php">Hot Shaves</a></li>
-                        <li><a href="services.php">Hair Washing</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> 123 Main Street</li>
-                        <li><i class="fas fa-phone"></i> +1 (234) 567-8900</li>
-                        <li><i class="fas fa-envelope"></i> info@haircuttinghub.com</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; <span id="current-year">2024</span> Hair Cutting Hub. All rights reserved.</p>
             </div>
         </div>
-    </footer>
-</body>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="features20 cid-v4BLxGf9FM" id="features20-23">
+
+    
+
+    
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 col-lg-9">
+                <div class="card-wrapper pb-4">
+                    <div class="card-box align-center">
+                        <h4 class="card-title mbr-fonts-style mb-4 display-2">
+                            <strong>Next Steps</strong>
+                        </h4>
+                        <p class="mbr-text mbr-fonts-style mb-4 display-7">
+                            Our Process</p>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-8">
+                <div class="item mbr-flex">
+                    <div class="icon-box">
+                        <span class="step-number mbr-fonts-style display-5">1</span>
+                    </div>
+                    <div class="text-box">
+                        <h4 class="icon-title card-title mbr-black mbr-fonts-style display-7">
+                            <strong>Request A Quote</strong></h4>
+                        <h5 class="icon-text mbr-black mbr-fonts-style display-4">Fill out our quick form or give us a call. Tell us a bit about your home or office, and your cleaning needs.</h5>
+                    </div>
+                </div>
+                <div class="item mbr-flex">
+                    <div class="icon-box">
+                        <span class="step-number mbr-fonts-style display-5">2</span>
+                    </div>
+                    <div class="text-box">
+                        <h4 class="icon-title card-title mbr-black mbr-fonts-style display-7"><strong>Confirm Your Booking</strong></h4>
+                        <h5 class="icon-text mbr-black mbr-fonts-style display-4">Choose your preferred date and time. We’ll send you a transparent, no-surprise price.</h5>
+                    </div>
+                </div>
+                <div class="item mbr-flex last">
+                    <div class="icon-box">
+                        <span class="step-number mbr-fonts-style display-5">3</span>
+                    </div>
+                    <div class="text-box">
+                        <h4 class="icon-title card-title mbr-black mbr-fonts-style display-7"><strong>Relax &amp; Enjoy</strong></h4>
+                        <h5 class="icon-text mbr-black mbr-fonts-style display-4">Our professional cleaners arrive on time, clean quietly and thoroughly, so you can enjoy your fresh space.</h5>
+                    </div>
+                </div>
+                
+                <div class="mbr-section-btn pt-3 text-center"><a class="btn btn-black-outline display-4" href="get_quote.php">Enquire Here</a></div>
+                
+                
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="footer4 cid-v4BbaHb6WW" once="footers" id="footer4-1w">
+
+    
+
+    
+    
+    <div class="container">
+        <div class="row mbr-white">
+            <div class="col-6 col-lg-3">
+                <div class="media-wrap col-md-8 col-12">
+                    
+                        <img src="assets/images/logo20jpg-341x273.png" alt="">
+                    
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <h5 class="mbr-section-subtitle mbr-fonts-style mb-2 display-7"><strong>📍Brighton &amp; Hove, UK&nbsp;&nbsp;</strong><div><strong></strong><br><strong>Emergency Cleans 24/7</strong></div></h5>
+                <p class="mbr-text mbr-fonts-style mb-4 display-4"></p>
+                
+                
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <h5 class="mbr-section-subtitle mbr-fonts-style mb-2 display-7"><div><strong>Service Hours</strong></div></h5>
+                <ul class="list mbr-fonts-style display-4">Mon–Sat: 8am–10pm
+<div><br></div></ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <h5 class="mbr-section-subtitle mbr-fonts-style mb-2 display-7">
+                    <strong>QuickLinks</strong></h5>
+                <ul class="list mbr-fonts-style display-4">
+                    <li class="mbr-text item-wrap"><a href="OurServices.php" class="text-black">Services</a></li><li class="mbr-text item-wrap"><a href="AboutUs.php#list07-2b" class="text-black">FAQ</a></li><li class="mbr-text item-wrap"><a href="Contact.php" class="text-black">Contact Us</a></li>
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+</section><script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/theme/js/script.js"></script>  
+  
+  
+  <input name="animation" type="hidden">
+  </body>
 </html>
