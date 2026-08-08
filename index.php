@@ -40,7 +40,7 @@
 			<div class="navbar-brand">
 				<span class="navbar-logo">
 					
-						<a href="index.html"><img src="assets/images/logo.png-160x186.png" alt="" style="height: 5rem;"></a>
+						<a href="index.php"><img src="assets/images/logo.png-160x186.png" alt="" style="height: 5rem;"></a>
 					
 				</span>
 				

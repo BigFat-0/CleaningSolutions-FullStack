@@ -39,7 +39,7 @@
 			<div class="navbar-brand">
 				<span class="navbar-logo">
 					
-						<a href="index.html"><img src="assets/images/logo.png-160x186.png" alt="" style="height: 5rem;"></a>
+						<a href="index.php"><img src="assets/images/logo.png-160x186.png" alt="" style="height: 5rem;"></a>
 					
 				</span>
 				
@@ -124,6 +124,177 @@
             </div>
         </div>
     </div>
+</section>
+
+<section data-bs-version="5.1" class="our-work-section" id="our-work">
+    <style>
+        .our-work-section {
+            padding: 4rem 0;
+            background-color: #f7f7f7;
+        }
+        .our-work-section .ba-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        @media (max-width: 767px) {
+            .our-work-section .ba-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .ba-slider {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+            user-select: none;
+            touch-action: pan-y;
+            cursor: ew-resize;
+        }
+        .ba-slider img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+            -webkit-user-drag: none;
+        }
+        .ba-slider .ba-after-wrap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            clip-path: inset(0 50% 0 0);
+        }
+        .ba-slider .ba-label {
+            position: absolute;
+            top: 12px;
+            padding: 4px 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.55);
+            border-radius: 20px;
+            pointer-events: none;
+            z-index: 3;
+        }
+        .ba-slider .ba-label-before { left: 12px; }
+        .ba-slider .ba-label-after { right: 12px; }
+        .ba-slider .ba-handle {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 3px;
+            height: 100%;
+            background: #fff;
+            transform: translateX(-50%);
+            pointer-events: none;
+            z-index: 2;
+            box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+        }
+        .ba-slider .ba-handle::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 40px;
+            height: 40px;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        .ba-slider .ba-handle-arrows {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+            pointer-events: none;
+            color: #333;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: -2px;
+        }
+    </style>
+
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-12 text-center">
+                <h3 class="mbr-section-title mbr-fonts-style mb-2 display-2"><strong>Our Work</strong></h3>
+                <h6 class="mbr-section-subtitle mbr-fonts-style display-7">Drag the slider to see the difference we make.</h6>
+            </div>
+        </div>
+        <div class="ba-grid">
+            <div class="ba-slider" data-ba-slider>
+                <img src="after1.jpeg" alt="After cleaning" class="ba-before">
+                <div class="ba-after-wrap"><img src="before1.jpeg" alt="Before cleaning" class="ba-after"></div>
+                <span class="ba-label ba-label-before">Before</span>
+                <span class="ba-label ba-label-after">After</span>
+                <div class="ba-handle"></div>
+                <div class="ba-handle-arrows">&#9664;&#9654;</div>
+            </div>
+            <div class="ba-slider" data-ba-slider>
+                <img src="after2.jpeg" alt="After cleaning" class="ba-before">
+                <div class="ba-after-wrap"><img src="before2.jpeg" alt="Before cleaning" class="ba-after"></div>
+                <span class="ba-label ba-label-before">Before</span>
+                <span class="ba-label ba-label-after">After</span>
+                <div class="ba-handle"></div>
+                <div class="ba-handle-arrows">&#9664;&#9654;</div>
+            </div>
+            <div class="ba-slider" data-ba-slider>
+                <img src="after3.jpeg" alt="After cleaning" class="ba-before">
+                <div class="ba-after-wrap"><img src="before3.jpeg" alt="Before cleaning" class="ba-after"></div>
+                <span class="ba-label ba-label-before">Before</span>
+                <span class="ba-label ba-label-after">After</span>
+                <div class="ba-handle"></div>
+                <div class="ba-handle-arrows">&#9664;&#9654;</div>
+            </div>
+            <div class="ba-slider" data-ba-slider>
+                <img src="after4.jpeg" alt="After cleaning" class="ba-before">
+                <div class="ba-after-wrap"><img src="before4.jpeg" alt="Before cleaning" class="ba-after"></div>
+                <span class="ba-label ba-label-before">Before</span>
+                <span class="ba-label ba-label-after">After</span>
+                <div class="ba-handle"></div>
+                <div class="ba-handle-arrows">&#9664;&#9654;</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            function setPos(slider, pct) {
+                pct = Math.max(0, Math.min(100, pct));
+                slider.querySelector('.ba-after-wrap').style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
+                slider.querySelector('.ba-handle').style.left = pct + '%';
+                slider.querySelector('.ba-handle-arrows').style.left = pct + '%';
+            }
+            document.querySelectorAll('[data-ba-slider]').forEach(function (slider) {
+                var dragging = false;
+                function moveTo(clientX) {
+                    var rect = slider.getBoundingClientRect();
+                    setPos(slider, ((clientX - rect.left) / rect.width) * 100);
+                }
+                slider.addEventListener('pointerdown', function (e) {
+                    dragging = true;
+                    slider.setPointerCapture(e.pointerId);
+                    moveTo(e.clientX);
+                });
+                slider.addEventListener('pointermove', function (e) {
+                    if (dragging) moveTo(e.clientX);
+                });
+                slider.addEventListener('pointerup', function () { dragging = false; });
+                slider.addEventListener('pointercancel', function () { dragging = false; });
+                setPos(slider, 50);
+            });
+        })();
+    </script>
 </section>
 
 <section data-bs-version="5.1" class="list07 cid-v4BUnQAbFV" id="list07-2b">
